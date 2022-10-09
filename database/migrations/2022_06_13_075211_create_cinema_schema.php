@@ -36,7 +36,30 @@ class CreateCinemaSchema extends Migration
      */
     public function up()
     {
-        throw new \Exception('implement in coding task 4, you can ignore this exception if you are just running the initial migrations.');
+        //I am not able to complete task 4 because i am running out of time :D
+        //its a rougly incomplete schema 
+        Schema::create('seat_type', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 50)->unique();
+            $table->bigInteger('price');
+            $table->timestamps();
+        });
+
+        Schema::create('showrooms', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 50)->unique();
+            $table->bigInteger('capacity');
+            $table->timestamps();
+        });
+
+        Schema::create('movies', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('showrooms_id');
+            $table->string('name', 50)->unique();
+            $table->bigInteger('start_time');
+            $table->bigInteger('end_time');
+            $table->timestamps();
+        });
     }
 
     /**
