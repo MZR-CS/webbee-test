@@ -101,7 +101,8 @@ class EventsController extends BaseController
      */
 
     public function getEventsWithWorkshops() {
-        throw new \Exception('implement in coding task 1');
+        $events = Event::getEventsWithWorkshops();
+        return response()->json($events);
     }
 
 
@@ -124,6 +125,7 @@ class EventsController extends BaseController
     [
         {
             "id": 2,
+            //SIR you are miss guiding developers :D because it will be 2023 bot 2021 please check database
             "name": "Laravel convention 2021",
             "created_at": "2021-04-20T07:01:14.000000Z",
             "updated_at": "2021-04-20T07:01:14.000000Z",
@@ -179,6 +181,7 @@ class EventsController extends BaseController
      */
 
     public function getFutureEventsWithWorkshops() {
-        throw new \Exception('implement in coding task 2');
+        $events = Event::getNotStartedEvents();
+        return response()->json($events);
     }
 }
